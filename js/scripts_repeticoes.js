@@ -88,3 +88,48 @@ const pessoas = [
     {nome: 'Chicó', idade: 36, renda:100},
     {nome: 'João Grilo', idade: 32, renda:80},
 ]
+
+// MANIPULANDO ARRAY
+// ADICIONAR ELEMENTOS NO ARRAY
+pessoas.push({nome: 'Magnólia', idade: 32, renda: 3500})
+pessoas.unshift({nome: 'Joerdison', idade: 36, renda: 100000})
+
+//SPLICE PARA ADICIONA EM UMA POSIÇÃO SEM EXECLUIR UM ELEMENTO
+pessoas.splice(3,0,{nome: 'Extraterrestre', idade: 250,renda: 0.50})
+
+//SPLICE ADICIONA EM UMA POSIÇÃO E NESSE EXEMPLO EXCUI MAIS DOIS ELEMENTOS A PARTIR DA POSIÇÃO(ÍNDICE ) INFORMADO
+pessoas.splice(3,2,{nome: 'Extraterrestre', idade: 250,renda: 0.50})
+
+//SPLICE EXCLUI UMA POSIÇÃO E NESSE EXEMPLO EXCLUI APENAS O ELEMENTO DA POSIÇÃO(ÍNDICE) INFORMADA
+pessoas.splice(1,0)
+
+//SPLICE EXCLUI DOIS ELEMENTOS A PARTIR DA POSIÇÃO (ÍNDICE) INFORMADA
+pessoas.splice(2,2)
+
+//EXCLUIR O ÚLTIMO ELEMENTO DA ARRAY
+pessoas.pop()
+
+//EXIBIR A QUANTIDADE DE ELEMENTOS EM UM ARRAY
+console.log('TOTAL DE ELEMENTOS NO ARRAY pessoas ====>',pessoas.length)
+
+
+
+// LISTANDO OBJETO LITERAL PELO FOR
+const divListaObjFor = document.querySelector('#div-listaobj-for')
+
+for(i = 0; i < pessoas.length; i++){
+    divListaObjFor.innerHTML += `${pessoas[i].nome}, ${pessoas[i].idade}, R$ ${pessoas[i].renda.toFixed(2).replace('.', ',')} <br>`
+}
+
+// LISTANDO OBJETO LITERAL PELO FOR/IN
+const divListaObjForIn = document.querySelector('#div-listaobj-forin')
+
+for(let indice in pessoas){
+    divListaObjForIn.innerHTML += `${indice} ${pessoas[indice].nome}, ${pessoas[indice].idade}, R$ ${pessoas[indice].renda.toFixed(2).replace('.', ',')} <br>`
+}
+// LISTANDO OBJETO LITERAL PELO FOREACH
+const divListaForeach = document.querySelector('#div-lista-foreach')
+
+pessoas.forEach((elem, i) => {
+    divListaForeach.innerHTML += `${i + 1} - ${elem.nome}, ${elem.idade} idade, R$ ${elem.renda.toFixed(2).replace('.', ',')} <br>`
+})
